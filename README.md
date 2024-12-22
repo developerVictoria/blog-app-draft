@@ -1,8 +1,14 @@
 # blog-app-draft
 
-Pre-requirements: local postgres (it wasn't tested on the docker conteiner so I can't advise to use dockerized postgres)
+Pre-requirements: local postgres (it wasn't tested on the docker conteiner so I can't advise to use dockerized postgres), Nodejs(with npm)
+
+Rules for the registration: 
+   -   name and email are strings, any other input will not be acepted on server side
+   -   password must be at least 12 symbols long, must include special symbol, upercase and lowercase letters as well as some numbers in it. Example: #User12Mario89 -- good, mario12 - bad
 
 #Initial setup:
+
+1. Clone the repository, then do next steps:
 
    BACKEND:
    
