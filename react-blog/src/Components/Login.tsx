@@ -4,15 +4,15 @@ import { useDispatch } from "react-redux";
 import { setUserData } from '../feature/UserSlice.tsx'
 import "./Login.css";
 import axios from 'axios';
-
+import { REACT_APP_API_URL } from '../environment';
 const Login = () => {
 
     const [fullName, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const dispatch = useDispatch();
-    const api_url = "http://localhost:3000/users/"
-    const login_url = "http://localhost:3000/users/login";
+    const api_url = `${REACT_APP_API_URL}users/`
+    const login_url = `${REACT_APP_API_URL}users/login`;
     const register = () => {
         axios.post(api_url, {
             fullName: fullName,
@@ -31,6 +31,7 @@ const Login = () => {
 
             })
             .catch((err) => {
+                alert({ error: err, msg: 'Username could be taken or the password must have few numbers, upper and lowercase characters, spesial symbols and be atleast 10-12 symbols long. Also The email mest contain @ sing and have domen exptention atleast two symbols after dot' });
                 console.log(err);
 
             })
@@ -55,6 +56,7 @@ const Login = () => {
 
             })
             .catch((err) => {
+
                 console.log(err);
                 register();
 

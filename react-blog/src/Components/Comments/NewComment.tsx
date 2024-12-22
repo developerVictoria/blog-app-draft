@@ -6,12 +6,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import "../Login.css"
-
+import { REACT_APP_API_URL } from '../../environment';
 function newComment() {
     const [text, setText] = useState("test comment");
 
     const user = useSelector(selectUserData);
-    const api_url = "http://localhost:3000/comment/";
+    const api_url = `${REACT_APP_API_URL}comment/`;
     const navigate = useNavigate();
     const params = useParams();
 

@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { REACT_APP_API_URL } from '../../environment';
 
 function Comment(commentInfo?: any) {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Comment(commentInfo?: any) {
     }
     useEffect(() => {
 
-        axios.get(`http://localhost:3000/users/name/${commentInfo.content.author}`).then(data => {
+        axios.get(`${REACT_APP_API_URL}users/name/${commentInfo.content.author}`).then(data => {
             console.log(data.data);
             setAuthor(data.data);
 

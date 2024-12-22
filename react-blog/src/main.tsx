@@ -10,6 +10,7 @@ import NewComment from './Components/Comments/newComment.tsx';
 import PostPage from './Components/Posts/PostPage.tsx';
 import EditPost from './Components/Posts/EditPost.tsx';
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>

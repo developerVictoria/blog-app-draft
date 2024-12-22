@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useSelector } from "react-redux";
-
 import { selectUserData } from '../../feature/UserSlice';
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Comment from '../Comments/Comment.tsx'
-
+import { REACT_APP_API_URL } from '../../environment';
 
 function PostPage() {
     const navigate = useNavigate();
@@ -15,7 +14,7 @@ function PostPage() {
     const [author, SetAuthor] = useState('author');
     const [comments, SetComments] = useState([]);
     const user = useSelector(selectUserData);
-    const api_url = `http://localhost:3000/`;
+    const api_url = `${REACT_APP_API_URL}`;
     const getAuthorName = (id: number | string) => {
         console.log("Id in get author name", id);
 
@@ -29,7 +28,7 @@ function PostPage() {
 
     }
     const getAllComments = () => {
-        const req_url = `http://localhost:3000/post/${params.id}/comments`;
+        const req_url = `${process.env.REACT_APP_API_URL}post/${params.id}/comments`;
         axios.get(req_url).then(data => {
             console.log(data.data);
             SetComments(data.data);

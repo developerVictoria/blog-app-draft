@@ -6,12 +6,13 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 import '../Login.css'
+import { REACT_APP_API_URL } from '../../environment';
 function NewPost() {
     const param = useParams();
     const [title, setTitle] = useState("test title");
     const [content, setContent] = useState("some text");
     const user = useSelector(selectUserData);
-    const api_url = "http://localhost:3000/post/";
+    const api_url = `${REACT_APP_API_URL}post/`;
     const navigate = useNavigate();
     const handleRedirect = () => {
 

@@ -5,7 +5,7 @@ import { selectUserData, setUserData } from '../../feature/UserSlice.tsx'
 import FYPage from './FYPage.tsx';
 import "./Homepage.css";
 import { useNavigate } from 'react-router-dom';
-import './Homepage.css';
+
 
 function Homepage() {
     const navigate = useNavigate();

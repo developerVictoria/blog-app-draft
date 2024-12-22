@@ -4,12 +4,12 @@ import { selectUserData } from '../../feature/UserSlice'
 import { useSelector } from "react-redux";
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { REACT_APP_API_URL } from '../../environment';
 function EditPost() {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const user = useSelector(selectUserData);
-    const api_url = "http://localhost:3000/post/";
+    const api_url = `${REACT_APP_API_URL}post/`;
     const navigate = useNavigate();
     const params = useParams();
     useEffect(() => {

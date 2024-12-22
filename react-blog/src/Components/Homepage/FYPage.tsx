@@ -4,14 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectBlogData, setBlogData } from '../../feature/UserSlice.tsx'
 import Post from '../Posts/Post.tsx'
 import axios from 'axios'
-//on post click we make next requests:
-//get the author by id, and comments
-//on response we form a postInfo blok
-//immidiatly we make request to gett all posts
+import { REACT_APP_API_URL } from '../../environment';
 
 function FYPage() {
     const posts = useSelector(selectBlogData);
-    const api_url = 'http://127.0.0.1:3000/post/'
+    const api_url = `${REACT_APP_API_URL}post/`
     const dispatch = useDispatch();
     const [loading, SetLoading] = useState(true);
     useEffect(() => {
